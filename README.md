@@ -1,3 +1,5 @@
+![TESTS](https://github.com/Pytlicek/sheet2dict/workflows/Python%20package/badge.svg)
+
 # sheet2dict
 A simple XLSX/CSV to dictionary converter
 
