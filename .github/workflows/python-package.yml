@@ -36,7 +36,7 @@ jobs:
         flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
     - name: Test with pytest
       run: |
-        pytest -v --disable-warnings
+        pytest -v --cov=sheet2dict --disable-warnings
         
     - name: CodeCov
       run: bash <(curl -s https://codecov.io/bash)
