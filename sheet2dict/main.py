@@ -26,7 +26,7 @@ class Worksheet:
         def item(row, col):
             return (
                 sheet.cell(row=1, column=col).value,
-                str(sheet.cell(row=row, column=col).value)
+                str(sheet.cell(row=row, column=col).value),
             )
 
         for row in range(2, rows + 1):
@@ -36,14 +36,16 @@ class Worksheet:
 
         return self
 
-    def csv_to_dict(self, csv_file, delimiter=','):
+    def csv_to_dict(self, csv_file, delimiter=","):
         """
         Read a CSV and return it as array of dictionaries
         :param self: CSV Object
         :param csv_file: CSV file
+        :param delimiter: CSV delimiter fe. ';', ','
         :return: Array of rows as dictionaries
         """
         import csv
+
         self.sheet_items = []
 
         dict_reader = csv.DictReader(csv_file, delimiter=delimiter)
