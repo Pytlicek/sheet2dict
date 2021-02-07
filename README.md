@@ -1,3 +1,5 @@
+![Tests](https://github.com/Pytlicek/sheet2dict/workflows/Python%20package/badge.svg) [![Sourcery](https://img.shields.io/badge/Sourcery-enabled-brightgreen)](https://sourcery.ai) [![Black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/ambv/black)
+
 # sheet2dict
 A simple XLSX/CSV to dictionary converter
 
