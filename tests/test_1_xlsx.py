@@ -33,6 +33,7 @@ def test_parse_xlsx_sheet_items(worksheet):
     assert "Bratislava" in str(ws_items)
     assert "Miami" in str(ws_items)
     assert "None:" in str(ws_items)
+    assert None in ws_items[0]
     assert len(ws_items) > 1
     assert len(ws_items) == 6
 

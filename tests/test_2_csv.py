@@ -39,7 +39,7 @@ def test_parse_csv_sheet_items(worksheet):
     ws_items = ws.sheet_items
     assert "Bratislava" in str(ws_items)
     assert "Miami" in str(ws_items)
-    assert "'':" in str(ws_items)
+    assert '' in ws_items[0]
     assert len(ws_items) > 1
     assert len(ws_items) == 6
 
