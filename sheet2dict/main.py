@@ -52,5 +52,21 @@ class Worksheet:
         self.sheet_items = list(dict_reader)
         return self.sheet_items
 
+    @property
     def headers(self):
         return self.sheet_items[0]
+
+    @property
+    def sanitize_sheet_items(self):
+        """
+        Remove None or empty keys from dictionaries
+        :param self: XLSX or CSV Object
+        :return: Array of rows as dictionaries
+        """
+        sanitized_items = self.sheet_items
+        for item in sanitized_items:
+            if None in item:
+                del item[None]
+            elif "" in item:
+                del item[""]
+        return sanitized_items

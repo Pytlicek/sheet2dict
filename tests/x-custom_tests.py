@@ -7,23 +7,25 @@ from sheet2dict import Worksheet
 from io import BytesIO
 
 
-a = Worksheet()
-a.xlsx_to_dict(path="inventory.xlsx")
-print(">>", a.headers())
-print(">>", a.sheet_items)
+ws = Worksheet()
+ws.xlsx_to_dict(path="inventory.xlsx")
+print(">>", ws.headers)
+print("ALL:", ws.sheet_items)
+print("SANITIZED:", ws.sanitize_sheet_items)
 
 
 path = "inventory.xlsx"
 xlsx_file = open(path, "rb")
 xlsx_file = BytesIO(xlsx_file.read())
 
-a = Worksheet()
-a.xlsx_to_dict(path=xlsx_file)
-print(">>", a.headers())
+ws = Worksheet()
+ws.xlsx_to_dict(path=xlsx_file)
+print(">>", ws.headers)
 
 
-a = Worksheet()
+ws = Worksheet()
 path = "inventory.csv"
 csv_file = open(path, "r", encoding="utf-8-sig")
-a.csv_to_dict(csv_file=csv_file, delimiter=";")
-print(">>", a.headers())
+ws.csv_to_dict(csv_file=csv_file, delimiter=";")
+print("ALL:", ws.sheet_items)
+print("SANITIZED:", ws.sanitize_sheet_items)

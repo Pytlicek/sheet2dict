@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="sheet2dict",
-    version="0.0.4",
+    version="0.0.5",
     author="Tomas Pytel",
     author_email="pytlicek@gmail.com",
     description="Simple XLSX and CSV to dictionary converter",
@@ -18,6 +18,6 @@ setuptools.setup(
         "License :: OSI Approved :: MIT License",
         "Operating System :: OS Independent",
     ],
-    install_requires=['openpyxl'],
-    python_requires='>=3.6',
+    install_requires=["openpyxl"],
+    python_requires=">=3.6",
 )

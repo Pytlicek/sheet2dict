@@ -7,14 +7,15 @@ def test_empty_object(worksheet):
 def test_parse_xlsx_headers(worksheet):
     ws = worksheet
     ws.xlsx_to_dict(path="tests/inventory.xlsx")
-    ws_headers = ws.headers()
+    ws_headers = ws.headers
     assert ws_headers == {
-        "state": "SK",
+        "country": "SK",
         "city": "Bratislava",
         "citizens": "400000",
         None: "11",
         "random_field": "cc",
     }
+    assert None in ws_headers
 
 
 def test_parse_xlsx_all_items(worksheet):
@@ -22,6 +23,7 @@ def test_parse_xlsx_all_items(worksheet):
     ws_items = ws.xlsx_to_dict(path="tests/inventory.xlsx")
     assert "Bratislava" in str(ws_items)
     assert "Miami" in str(ws_items)
+    assert "None" in str(ws_items)
 
 
 def test_parse_xlsx_sheet_items(worksheet):
@@ -30,8 +32,18 @@ def test_parse_xlsx_sheet_items(worksheet):
     ws_items = ws.sheet_items
     assert "Bratislava" in str(ws_items)
     assert "Miami" in str(ws_items)
+    assert "None:" in str(ws_items)
     assert len(ws_items) > 1
     assert len(ws_items) == 6
+
+
+def test_sanitize_sheet_items(worksheet):
+    ws = worksheet
+    ws.xlsx_to_dict(path="tests/inventory.xlsx")
+    ws_items = ws.sanitize_sheet_items
+    assert "Bratislava" in str(ws_items)
+    assert "Miami" in str(ws_items)
+    assert "None:" not in str(ws_items)
 
 
 from io import BytesIO
