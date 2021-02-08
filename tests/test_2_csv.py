@@ -52,4 +52,4 @@ def test_sanitize_sheet_items(worksheet):
     ws_items = ws.sanitize_sheet_items
     assert "Bratislava" in str(ws_items)
     assert "Miami" in str(ws_items)
-    assert "'':" not in str(ws_items)
+    assert "" not in ws_items[0]

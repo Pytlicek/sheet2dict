@@ -44,6 +44,7 @@ def test_sanitize_sheet_items(worksheet):
     assert "Bratislava" in str(ws_items)
     assert "Miami" in str(ws_items)
     assert "None:" not in str(ws_items)
+    assert None not in ws_items[0]
 
 
 from io import BytesIO
