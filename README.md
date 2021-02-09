@@ -11,6 +11,8 @@ python3 -m pip install --no-cache-dir sheet2dict
 
 Required pip packages for sheet2doc: csv, openpyxl
 
+<p align="center"><img src="/img/sheet2dict.gif?raw=true"/></p>
+
 ## Usage
 This library has 2 main features: reading a spreadsheet files and converting them to array of python dictionaries.  
 
