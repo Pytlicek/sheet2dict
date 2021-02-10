@@ -30,8 +30,8 @@ ws = Worksheet()
 # Convert 
 ws.xlsx_to_dict(path='inventory.xlsx')
 
-# object.headers returns first row with the data in a spreadsheet 
-print(ws.headers)
+# object.header returns first row with the data in a spreadsheet 
+print(ws.header)
 
 # object.sheet_items returns converted rows as dictionaries in the array 
 print(ws.sheet_items)
@@ -52,7 +52,7 @@ xlsx_file = BytesIO(xlsx_file.read())
 # Parse spreadsheet from object
 ws = Worksheet()
 ws.xlsx_to_dict(path=xlsx_file)
-print(ws.headers)
+print(ws.header)
 
 ```
 
@@ -73,15 +73,15 @@ csv_file = open('inventory.csv', 'r', encoding='utf-8-sig')
 # Convert 
 ws.csv_to_dict(csv_file=csv_file, delimiter=';')
 
-# object.headers returns first row with the data in a spreadsheet 
-print(ws.headers)
+# object.header returns first row with the data in a spreadsheet 
+print(ws.header)
 
 # object.sheet_items returns converted rows as dictionaries in the array 
 print(ws.sheet_items)
 ```
 
 ### - Other functions
-Worksheet **object.headers** returns first row with the data in a spreadsheet 
+Worksheet **object.header** returns first row with the data in a spreadsheet 
 ```python
 Python 3.9.1
 [Clang 12.0.0 (clang-1200.0.32.28)] on darwin
@@ -89,7 +89,7 @@ Python 3.9.1
 >>> ws = Worksheet()
 >>> ws.xlsx_to_dict(path="inventory.xlsx")
 
->>> ws.headers
+>>> ws.header
 {'country': 'SK', 'city': 'Bratislava', 'citizens': '400000', 'random_field': 'cc'}
 ```
 

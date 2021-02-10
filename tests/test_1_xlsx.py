@@ -4,18 +4,18 @@ def test_empty_object(worksheet):
     assert sheet_items == []
 
 
-def test_parse_xlsx_headers(worksheet):
+def test_parse_xlsx_header(worksheet):
     ws = worksheet
     ws.xlsx_to_dict(path="tests/inventory.xlsx")
-    ws_headers = ws.headers
-    assert ws_headers == {
+    ws_header = ws.header
+    assert ws_header == {
         "country": "SK",
         "city": "Bratislava",
         "citizens": "400000",
         None: "11",
         "random_field": "cc",
     }
-    assert None in ws_headers
+    assert None in ws_header
 
 
 def test_parse_xlsx_all_items(worksheet):

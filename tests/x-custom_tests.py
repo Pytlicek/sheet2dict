@@ -9,7 +9,7 @@ from io import BytesIO
 
 ws = Worksheet()
 ws.xlsx_to_dict(path="inventory.xlsx")
-print(">>", ws.headers)
+print(">>", ws.header)
 print("ALL:", ws.sheet_items)
 print("SANITIZED:", ws.sanitize_sheet_items)
 
@@ -20,7 +20,7 @@ xlsx_file = BytesIO(xlsx_file.read())
 
 ws = Worksheet()
 ws.xlsx_to_dict(path=xlsx_file)
-print(">>", ws.headers)
+print(">>", ws.header)
 
 
 ws = Worksheet()

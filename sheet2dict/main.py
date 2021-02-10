@@ -53,7 +53,11 @@ class Worksheet:
         return self.sheet_items
 
     @property
-    def headers(self):
+    def header(self):
+        """
+        Return first row of data as dictionary
+        :return: first row of data as dictionary
+        """
         return self.sheet_items[0]
 
     @property

@@ -4,22 +4,22 @@ def test_empty_object(worksheet):
     assert sheet_items == []
 
 
-def test_parse_csv_headers(worksheet):
+def test_parse_csv_header(worksheet):
     ws = worksheet
     path = "tests/inventory.csv"
     csv_file = open(path, "r", encoding="utf-8-sig")
     ws.csv_to_dict(csv_file=csv_file, delimiter=";")
-    ws_headers = ws.headers
-    assert "Bratislava" in str(ws_headers)
-    assert "SK" in str(ws_headers)
-    assert ws_headers == {
+    ws_header = ws.header
+    assert "Bratislava" in str(ws_header)
+    assert "SK" in str(ws_header)
+    assert ws_header == {
         "country": "SK",
         "city": "Bratislava",
         "citizens": "400000",
         "": "11",
         "random_field": "cc",
     }
-    assert "" in ws_headers
+    assert "" in ws_header
 
 
 def test_parse_csv_all_items(worksheet):
