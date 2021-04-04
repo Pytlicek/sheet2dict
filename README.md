@@ -111,3 +111,12 @@ Worksheet **object.sanitize_sheet_items** removes None or empty dictionary keys 
   {'country': 'UK', 'city': 'London', 'citizens': '2000000', 'random_field': 'cc'}
 ]
 ```
+
+# Contributing and Code of Conduct  
+### Contributing to sheet2dict  
+As an open source project, sheet2dict welcomes contributions of many forms.  
+Please read and follow our [Contributing to sheet2dict](CONTRIBUTING.md)  
+
+### Code of Conduct  
+As a contributor, you can help us keep the sheet2dict project open and inclusive.  
+Please read and follow our [Code of Conduct](CODE_OF_CONDUCT.md)  
