@@ -9,15 +9,19 @@ class Worksheet:
     def __repr__(self) -> str:
         return str(self.sheet_items)
 
-    def xlsx_to_dict(self, path):
+    def xlsx_to_dict(self, path, select_sheet=None):
         """
         Read a Worksheet and return it as array of dictionaries
         :param self: Worksheet Object
         :param path: Path to XLSX file
+        :param select_sheet: Set active sheet by name
         :return: Array of rows as dictionaries
         """
         book = load_workbook(path)
-        sheet = book.active
+        if select_sheet is None:
+            sheet = book.active
+        else:
+            sheet = book[select_sheet]
         rows = sheet.max_row
         cols = sheet.max_column
 
