@@ -19,6 +19,7 @@ This library has 2 main features: reading a spreadsheet files and converting the
 ### - XLSX
 Use `xlsx_to_dict()` method  when converting form spreadsheets.  
 Supported file formats for spreadsheets are: .xlsx,.xlsm,.xltx,.xltm  
+Spreadsheets with multiple worksheets are supported. If no sheet is specified, the first sheet is selected.
 
 ```python3
 # Import the library
@@ -27,8 +28,8 @@ from sheet2dict import Worksheet
 # Create an object
 ws = Worksheet()
 
-# Convert 
-ws.xlsx_to_dict(path='inventory.xlsx')
+# Convert the 'Main Warehouse' sheet of the 'inventory.xslx' spreadsheet file.
+ws.xlsx_to_dict(path='inventory.xlsx', select_sheet='Main Warehouse')
 
 # object.header returns first row with the data in a spreadsheet 
 print(ws.header)
