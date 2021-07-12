@@ -117,6 +117,9 @@ Worksheet **object.sanitize_sheet_items** removes None or empty dictionary keys 
 As an open source project, sheet2dict welcomes contributions of many forms.  
 Please read and follow our [Contributing to sheet2dict](CONTRIBUTING.md)  
 
+**Contributors:**
+- Thanks to 白一百 (bái-yī-bǎi) for making sheet2dict work with multi-sheet Excel files.
+
 ### Code of Conduct  
 As a contributor, you can help us keep the sheet2dict project open and inclusive.  
 Please read and follow our [Code of Conduct](CODE_OF_CONDUCT.md)  
