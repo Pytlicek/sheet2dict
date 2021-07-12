@@ -12,7 +12,7 @@ def test_parse_xlsx_header(worksheet):
         "country": "Taiwan",
         "city": "Taipei",
         "area (km)": "271.8",
-        None: "88.0",
+        None: "88",
         "rand_field": "ee",
     }
     assert None in ws_header
