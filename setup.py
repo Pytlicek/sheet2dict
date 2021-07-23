@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="sheet2dict",
-    version="0.1.0",
+    version="0.1.1",
     author="Tomas Pytel",
     author_email="pytlicek@gmail.com",
     description="Simple XLSX and CSV to dictionary converter",
