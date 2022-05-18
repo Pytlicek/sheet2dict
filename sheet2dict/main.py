@@ -1,31 +1,49 @@
+from collections import defaultdict
+
 from openpyxl import load_workbook  # type: ignore
-from typing import List
+from typing import List, Union
+
+from openpyxl.worksheet.worksheet import Worksheet
 
 
 class Worksheet:
     def __init__(self) -> None:
-        self.sheet_items: List[dict] = []
+        self.sheet_items: Union[List[dict], defaultdict[list]] = []
 
     def __repr__(self) -> str:
         return str(self.sheet_items)
 
-    def xlsx_to_dict(self, path, select_sheet=None):
+    def xlsx_to_dict(self, path, select_sheet=None, parse_all_sheets=False):
         """
         Read a Worksheet and return it as array of dictionaries
         :param self: Worksheet Object
         :param path: Path to XLSX file
         :param select_sheet: Set active sheet by name
-        :return: Array of rows as dictionaries
+        :param parse_all_sheets: Use if you want to get data from all of the sheets
+        :return: Array of rows as dictionaries or dictionary with arrays as values if parse_all_sheets flag set to True
         """
         book = load_workbook(path)
+        self.sheet_items = []
+        if parse_all_sheets:
+            self.sheet_items = defaultdict(list)
+
+            for sheet_name in book.sheetnames:
+                self._parse_sheet_items(book[sheet_name], parsing_all_sheets=True)
+            return self
+
         if select_sheet is None:
             sheet = book.active
         else:
             sheet = book[select_sheet]
+
+        self._parse_sheet_items(sheet)
+
+        return self
+
+    def _parse_sheet_items(self, sheet: Worksheet, parsing_all_sheets: bool = False):
         rows = sheet.max_row
         cols = sheet.max_column
-
-        self.sheet_items = []
+        sheet_title = sheet.title
 
         def item(row, col):
             return (
@@ -34,15 +52,14 @@ class Worksheet:
             )
 
         for row in range(2, rows + 1):
-            self.sheet_items.append(
-                dict(item(row, col) for col in range(1, cols + 1))
+            list_to_append = (
+                self.sheet_items[sheet_title] if parsing_all_sheets else self.sheet_items
             )
-
-        return self
+            list_to_append.append(dict(item(row, col) for col in range(1, cols + 1)))
 
     def csv_to_dict(self, csv_file, delimiter=","):
         """
-        Read a CSV and return it as array of dictionaries
+        Read a CSV and return it as an array of dictionaries
         :param self: CSV Object
         :param csv_file: CSV file
         :param delimiter: CSV delimiter fe. ';', ','
