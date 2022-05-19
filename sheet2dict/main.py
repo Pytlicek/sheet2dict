@@ -51,10 +51,10 @@ class Worksheet:
                 str(sheet.cell(row=row, column=col).value),
             )
 
+        list_to_append = (
+            self.sheet_items[sheet_title] if parsing_all_sheets else self.sheet_items
+        )
         for row in range(2, rows + 1):
-            list_to_append = (
-                self.sheet_items[sheet_title] if parsing_all_sheets else self.sheet_items
-            )
             list_to_append.append(dict(item(row, col) for col in range(1, cols + 1)))
 
     def csv_to_dict(self, csv_file, delimiter=","):
