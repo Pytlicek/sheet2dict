@@ -1,6 +1,26 @@
 [build-system]
-requires = [
-    "setuptools>=42",
-    "wheel"
-]
+requires = ["setuptools>=61.2.0", "wheel", "setuptools_scm[toml]>=3.4.3"]
 build-backend = "setuptools.build_meta"
+
+[project]
+name = "sheet2dict"
+authors = [{name = "Tomas Pytel", email = "pytlicek@gmail.com"}]
+description = "Simple XLSX and CSV to dictionary converter"
+readme = "README.md"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+urls = {Homepage = "https://github.com/Pytlicek/sheet2dict"}
+requires-python = ">=3.6"
+dependencies = ["openpyxl"]
+dynamic = ["version"]
+
+[tool.setuptools]
+include-package-data = false
+
+[tool.setuptools.packages]
+find = {namespaces = false}
+
+[tool.setuptools_scm]
