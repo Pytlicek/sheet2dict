@@ -4,6 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "sheet2dict"
+version = "0.1.3"
 authors = [{name = "Tomas Pytel", email = "pytlicek@gmail.com"}]
 description = "Simple XLSX and CSV to dictionary converter"
 readme = "README.md"
@@ -15,7 +16,6 @@ classifiers = [
 urls = {Homepage = "https://github.com/Pytlicek/sheet2dict"}
 requires-python = ">=3.6"
 dependencies = ["openpyxl"]
-dynamic = ["version"]
 
 [tool.setuptools]
 include-package-data = false
