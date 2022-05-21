@@ -37,6 +37,17 @@ def test_parse_xlsx_sheet_items(worksheet):
     assert len(ws_items) > 1
     assert len(ws_items) == 6
 
+def test_parse_xlsx_all_sheets(worksheet):
+    ws = worksheet
+    ws.xlsx_to_dict(path="tests/inventory.xlsx", parse_all_sheets=True)
+    ws_items = ws.sheet_items
+    assert "Sheet1" in ws_items
+    assert "SJ3" in ws_items
+    assert "Taiwan" in str(ws_items["SJ3"])
+    assert "Miami" in str(ws_items["SJ3"])
+    assert "Bratislava" in str(ws_items["Sheet1"])
+    assert "Prague" in str(ws_items["Sheet1"])
+
 
 def test_sanitize_sheet_items(worksheet):
     ws = worksheet
@@ -70,3 +81,15 @@ def test_parse_xlsx_sheet_items_as_object(worksheet):
     assert "Miami" in str(ws_items)
     assert len(ws_items) > 1
     assert len(ws_items) == 6
+
+
+def test_parse_xlsx_all_sheets_as_object(worksheet):
+    ws = worksheet
+    ws.xlsx_to_dict(path=xlsx_file, parse_all_sheets=True)
+    ws_items = ws.sheet_items
+    assert "Sheet1" in ws_items
+    assert "SJ3" in ws_items
+    assert "Taiwan" in str(ws_items["SJ3"])
+    assert "Miami" in str(ws_items["SJ3"])
+    assert "Bratislava" in str(ws_items["Sheet1"])
+    assert "Prague" in str(ws_items["Sheet1"])
