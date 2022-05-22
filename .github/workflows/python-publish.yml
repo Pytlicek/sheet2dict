@@ -30,6 +30,7 @@ jobs:
       env:
         TWINE_USERNAME: ${{ secrets.PYPI_USERNAME }}
         TWINE_PASSWORD: ${{ secrets.PYPI_PASSWORD }}
+        PROJECT_NAME: sheet2dict
       run: |
         python -m build
         twine upload dist/* 
