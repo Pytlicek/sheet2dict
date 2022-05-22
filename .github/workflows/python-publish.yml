@@ -32,4 +32,4 @@ jobs:
         TWINE_PASSWORD: ${{ secrets.PYPI_PASSWORD }}
       run: |
         python -m build
-        twine upload --repository sheet2dict dist/* 
+        twine upload dist/* 
