@@ -1,7 +1,7 @@
 ![Test Python package](https://github.com/Pytlicek/sheet2dict/workflows/Test%20Python%20package/badge.svg) 
 [![codecov](https://codecov.io/gh/Pytlicek/sheet2dict/branch/main/graph/badge.svg?token=JL4BOX947I)](https://codecov.io/gh/Pytlicek/sheet2dict) 
 ![Upload Python Package to PyPI](https://github.com/Pytlicek/sheet2dict/workflows/Upload%20Python%20Package%20to%20PyPI/badge.svg) 
-![PythonVersions](https://img.shields.io/badge/python-3.6%20%7C%203.7%20%7C%203.8%20%7C%203.9%20%7C%203.10-blue) 
+![PythonVersions](https://img.shields.io/badge/python-3.6%20%7C%203.7%20%7C%203.8%20%7C%203.9%20%7C%203.10%20%7C%203.11-blue) 
 [![Sourcery](https://img.shields.io/badge/Sourcery-enabled-brightgreen)](https://sourcery.ai) 
 [![Black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/ambv/black) 
 [![Snyk](https://snyk-widget.herokuapp.com/badge/pip/sheet2dict/badge.svg)](https://snyk.io/advisor/python/sheet2dict) 
