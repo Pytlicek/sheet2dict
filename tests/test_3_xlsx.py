@@ -6,7 +6,7 @@ def test_empty_object(worksheet):
 
 def test_parse_xlsx_header(worksheet):
     ws = worksheet
-    ws.xlsx_to_dict(path="inventory.xlsx", select_sheet='SJ3')
+    ws.xlsx_to_dict(path="tests/inventory.xlsx", select_sheet='SJ3')
     ws_header = ws.header
     assert ws_header == {
         "country": "Taiwan",
@@ -20,16 +20,15 @@ def test_parse_xlsx_header(worksheet):
 
 def test_parse_xlsx_all_items(worksheet):
     ws = worksheet
-    ws_items = ws.xlsx_to_dict(path="inventory.xlsx", select_sheet='SJ3')
+    ws_items = ws.xlsx_to_dict(path="tests/inventory.xlsx", select_sheet='SJ3')
     assert "Taipei" in str(ws_items)
     assert "Seoul" in str(ws_items)
 
 
 def test_parse_xlsx_sheet_items(worksheet):
     ws = worksheet
-    ws.xlsx_to_dict(path="inventory.xlsx", select_sheet='SJ3')
+    ws.xlsx_to_dict(path="tests/inventory.xlsx", select_sheet='SJ3')
     ws_items = ws.sheet_items
-    print(ws.header)
     assert "Taipei" in str(ws_items)
     assert "Bratislava" not in str(ws_items)
     assert "None:" in str(ws_items)
@@ -41,7 +40,7 @@ def test_parse_xlsx_sheet_items(worksheet):
 
 def test_sanitize_sheet_items(worksheet):
     ws = worksheet
-    ws.xlsx_to_dict(path="inventory.xlsx", select_sheet='SJ3')
+    ws.xlsx_to_dict(path="tests/inventory.xlsx", select_sheet='SJ3')
     ws_items = ws.sanitize_sheet_items
     assert "Taipei" in str(ws_items)
     assert "Bratislava" not in str(ws_items)
@@ -51,7 +50,7 @@ def test_sanitize_sheet_items(worksheet):
 
 from io import BytesIO
 
-path = "inventory.xlsx"
+path = "tests/inventory.xlsx"
 xlsx_file = open(path, "rb")
 xlsx_file = BytesIO(xlsx_file.read())
 
