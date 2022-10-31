@@ -46,10 +46,10 @@ class Worksheet:
         sheet_title = sheet.title
 
         def item(row, col):
-            return (
-                sheet.cell(row=1, column=col).value,
-                str(sheet.cell(row=row, column=col).value),
-            )
+            if sheet.cell(row=row, column=col).value is None:
+                return (sheet.cell(row=1, column=col).value, '')
+            else:
+                return (sheet.cell(row=1, column=col).value, str(sheet.cell(row=row, column=col).value))
 
         list_to_append = (
             self.sheet_items[sheet_title] if parsing_all_sheets else self.sheet_items
