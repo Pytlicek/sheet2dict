@@ -32,6 +32,7 @@ def test_parse_xlsx_sheet_items(worksheet):
     assert "Taipei" in str(ws_items)
     assert "Bratislava" not in str(ws_items)
     assert "None:" in str(ws_items)
+    assert "'None'," not in str(ws_items)  # Tests whether empty cells were converted to "" strings and not "None"
     assert None in ws_items[0]
     assert len(ws_items) > 1
     assert len(ws_items) == 6
