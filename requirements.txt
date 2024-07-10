@@ -1,3 +1,4 @@
 openpyxl==3.0.6
 pytest==6.2.5
 pytest-cov==3.0.0
+zipp>=3.19.1 # not directly required, pinned by Snyk to avoid a vulnerability
