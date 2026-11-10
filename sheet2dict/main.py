@@ -92,6 +92,6 @@ class Worksheet:
         for item in sanitized_items:
             if None in item:
                 del item[None]
-            elif "" in item:
+            if "" in item:
                 del item[""]
         return sanitized_items
