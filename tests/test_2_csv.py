@@ -53,3 +53,14 @@ def test_sanitize_sheet_items(worksheet):
     assert "Bratislava" in str(ws_items)
     assert "Miami" in str(ws_items)
     assert "" not in ws_items[0]
+
+
+def test_sanitize_removes_both_none_and_empty_keys():
+    from sheet2dict import Worksheet
+
+    ws = Worksheet()
+    ws.sheet_items = [{"country": "SK", None: "junk", "": "junk"}]
+    ws_items = ws.sanitize_sheet_items
+    assert None not in ws_items[0]
+    assert "" not in ws_items[0]
+    assert ws_items[0] == {"country": "SK"}
